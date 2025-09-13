@@ -31,3 +31,36 @@
 .square:hover {
   background: #eee;
 }
+
+.x-color {
+  color: #e53935;
+  font-weight: bold;
+  text-shadow: 0 0 8px #ffb3b3;
+}
+.o-color {
+  color: #3949ab;
+  font-weight: bold;
+  text-shadow: 0 0 8px #b3c6ff;
+}
+
+.win-animation {
+  animation: winFlash 1s infinite alternate;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ff9800;
+}
+
+.tie-animation {
+  animation: tieShake 0.5s infinite alternate;
+  color: #757575;
+  text-shadow: 0 0 8px #bdbdbd;
+}
+
+@keyframes winFlash {
+  from { color: #ffd700; text-shadow: 0 0 10px #ffd700, 0 0 20px #ff9800; }
+  to { color: #ff9800; text-shadow: 0 0 20px #ffd700, 0 0 30px #ff9800; }
+}
+
+@keyframes tieShake {
+  from { transform: translateX(0); }
+  to { transform: translateX(8px); }
+}

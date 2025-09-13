@@ -4,7 +4,7 @@ import './App.css';
 function Square({ value, onClick }) {
   return (
     <button className="square" onClick={onClick}>
-      {value}
+      {value === 'X' ? <span className="x-color">X</span> : value === 'O' ? <span className="o-color">O</span> : null}
     </button>
   );
 }
@@ -12,6 +12,7 @@ function Square({ value, onClick }) {
 function Board() {
   const [squares, setSquares] = React.useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = React.useState(true);
+  // ...existing code...
 
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -23,12 +24,17 @@ function Board() {
     setXIsNext(!xIsNext);
   }
 
+  // ...existing code...
+
   const winner = calculateWinner(squares);
   let status;
+  let statusClass = '';
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = 'Winner!';
+    statusClass = 'win-animation';
   } else if (squares.every(Boolean)) {
     status = 'Draw!';
+    statusClass = 'tie-animation';
   } else {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
@@ -41,7 +47,7 @@ function Board() {
 
   return (
     <div>
-      <div className="status">{status}</div>
+      <div className={`status ${statusClass}`}>{status}</div>
       <div className="board-row">
         {renderSquare(0)}{renderSquare(1)}{renderSquare(2)}
       </div>
