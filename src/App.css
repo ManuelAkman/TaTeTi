@@ -1,8 +1,38 @@
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    repeating-linear-gradient(135deg, #e53935 0 40px, #fff 40px 80px, #3949ab 80px 120px),
+    repeating-linear-gradient(45deg, #3949ab 0 40px, #fff 40px 80px, #e53935 80px 120px);
+  background-size: 160px 160px;
+  position: relative;
+}
+
+.background-xo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-xo span {
+  position: absolute;
+  font-size: 5em;
+  opacity: 0.08;
+  font-weight: bold;
+  user-select: none;
+}
+
 .game {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  z-index: 1;
 }
 
 .status {

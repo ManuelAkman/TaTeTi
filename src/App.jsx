@@ -76,10 +76,31 @@ function calculateWinner(squares) {
 }
 
 export default function App() {
+  // Render background X and O elements
+  const xoElements = [];
+  for (let i = 0; i < 20; i++) {
+    const isX = i % 2 === 0;
+    xoElements.push(
+      <span
+        key={i}
+        style={{
+          top: `${Math.random() * 90}vh`,
+          left: `${Math.random() * 90}vw`,
+          color: isX ? '#e53935' : '#3949ab',
+        }}
+      >{isX ? 'X' : 'O'}</span>
+    );
+  }
+
   return (
-    <div className="game">
-      <h1>Tic Tac Toe</h1>
-      <Board />
-    </div>
+    <>
+      <div className="background-xo">
+        {xoElements}
+      </div>
+      <div className="game">
+        <h1>Tic Tac Toe</h1>
+        <Board />
+      </div>
+    </>
   );
 }
