@@ -29,9 +29,11 @@ function Board() {
   const winner = calculateWinner(squares);
   let status;
   let statusClass = '';
+  let puppyMsg = '';
   if (winner) {
-    status = 'Winner!';
+    status = `Winner: ${winner}`;
     statusClass = 'win-animation';
+    puppyMsg = `Player ${winner === 'X' ? 'O' : 'X'} has a small puppy 🐶`;
   } else if (squares.every(Boolean)) {
     status = 'Draw!';
     statusClass = 'tie-animation';
@@ -48,6 +50,7 @@ function Board() {
   return (
     <div>
       <div className={`status ${statusClass}`}>{status}</div>
+      {winner && <div className="puppy-msg">{puppyMsg}</div>}
       <div className="board-row">
         {renderSquare(0)}{renderSquare(1)}{renderSquare(2)}
       </div>

@@ -49,6 +49,14 @@
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ff9800;
 }
 
+.puppy-msg {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #4caf50;
+  font-weight: bold;
+  text-shadow: 0 0 6px #b2ffb2;
+}
+
 .tie-animation {
   animation: tieShake 0.5s infinite alternate;
   color: #757575;
